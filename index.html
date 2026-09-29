@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===== <head>: служебная информация, на странице её не видно ===== -->
+  <meta charset="UTF-8">
+  <!-- Без этой строки телефон покажет «уменьшенную десктопную» версию -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PANELKA — Skate &amp; BMX Supply From the Blocks</title>
+  <meta name="description" content="Skateboards, BMX bikes, heavyweight hoodies and sticker packs from the grey panel blocks. Portfolio demo store.">
+  <meta name="theme-color" content="#161719">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph: как выглядит превью ссылки в Telegram, VK, Facebook, Discord, Slack.
+       Ссылки на страницу и картинку — только полные (с https://), иначе соцсеть их не найдёт. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PANELKA">
+  <meta property="og:title" content="PANELKA — Skate &amp; BMX Supply From the Blocks">
+  <meta property="og:description" content="Concrete is our playground. Skateboards, BMX bikes, hoodies and sticker packs from the grey panel blocks. Portfolio demo store.">
+  <meta property="og:url" content="https://gorealleell.github.io/panelka/">
+  <meta property="og:image" content="https://gorealleell.github.io/panelka/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PANELKA — Concrete is our playground: panel block with one lit window and police tape">
+
+  <!-- Twitter / X: своя разметка. summary_large_image = большая картинка над текстом.
+       Если какого-то twitter:-тега нет, X возьмёт значение из og:. -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PANELKA — Skate &amp; BMX Supply From the Blocks">
+  <meta name="twitter:description" content="Concrete is our playground. Skateboards, BMX bikes, hoodies and sticker packs from the grey panel blocks.">
+  <meta name="twitter:image" content="https://gorealleell.github.io/panelka/og-image.png">
+  <meta name="twitter:image:alt" content="PANELKA — Concrete is our playground">
+
+  <!-- Шрифты Google Fonts: Anton (заголовки), Permanent Marker (граффити), IBM Plex Mono (текст) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- defer = скачать скрипты сразу, но запустить после того, как HTML прочитан.
+       Порядок важен: сначала данные, потом рисовалка, потом логика. -->
+  <script src="products.js" defer></script>
+  <script src="art.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#shop">Skip to shop</a>
+
+  <!-- ===== ШАПКА ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="logo" aria-label="Panelka — back to top">
+        <img src="favicon.svg" alt="" width="30" height="30">
+        <span>PANEL<em>KA</em></span>
+      </a>
+      <nav class="main-nav" aria-label="Main">
+        <a href="#shop">Shop</a>
+        <a href="#spot">Spot</a>
+        <a href="#contacts">Contacts</a>
+      </nav>
+      <button class="cart-btn" id="cartOpen" type="button" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path d="M5 8h14l-1.2 12H6.2L5 8Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="2.2"/>
+        </svg>
+        <span class="cart-count" id="cartCount" hidden>0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ===== HERO: первый экран ===== -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="siren" aria-hidden="true"></div>
+      <!-- Сюда app.js дорисует панельки с окнами -->
+      <div class="skyline" id="skyline" aria-hidden="true"></div>
+
+      <div class="container hero-content">
+        <p class="kicker">Skate · BMX · Hoodies · Stickers</p>
+        <h1 class="hero-title" id="heroTitle">
+          <span class="line">Concrete</span>
+          <span class="line outline">is our <span class="hero-tag" aria-hidden="true">since ’09</span></span>
+          <span class="line">playground</span>
+        </h1>
+        <p class="hero-lead">
+          Decks, BMX bikes, heavyweight hoodies and sticker packs from the grey nine-story blocks.
+          Tested on stairs, curbs and garage roofs. Approved by nobody.
+        </p>
+        <div class="hero-actions">
+          <a href="#shop" class="btn btn-primary">Shop the drop</a>
+          <a href="#spot" class="btn btn-ghost">Find the spot</a>
+        </div>
+        <ul class="hero-perks">
+          <li>Free shipping over $100</li>
+          <li>Ships worldwide from the block</li>
+          <li>0 permits required</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== ПОЛИЦЕЙСКАЯ ЛЕНТА (чистое украшение) ===== -->
+    <div class="tape-wrap" aria-hidden="true">
+      <div class="tape tape-back">
+        <div class="tape-track">
+          <span>DO NOT CROSS ✖ SECURITY IS COMING ✖ ROLL FASTER ✖ DO NOT CROSS ✖ SECURITY IS COMING ✖ ROLL FASTER ✖ DO NOT CROSS ✖ SECURITY IS COMING ✖ ROLL FASTER ✖&nbsp;</span>
+          <span>DO NOT CROSS ✖ SECURITY IS COMING ✖ ROLL FASTER ✖ DO NOT CROSS ✖ SECURITY IS COMING ✖ ROLL FASTER ✖ DO NOT CROSS ✖ SECURITY IS COMING ✖ ROLL FASTER ✖&nbsp;</span>
+        </div>
+      </div>
+      <div class="tape tape-front">
+        <div class="tape-track">
+          <span>SKATEBOARDING IS NOT A CRIME ✖ POLICE LINE — DO NOT CROSS ✖ NO SKATING (LOL) ✖ SKATEBOARDING IS NOT A CRIME ✖ POLICE LINE — DO NOT CROSS ✖ NO SKATING (LOL) ✖&nbsp;</span>
+          <span>SKATEBOARDING IS NOT A CRIME ✖ POLICE LINE — DO NOT CROSS ✖ NO SKATING (LOL) ✖ SKATEBOARDING IS NOT A CRIME ✖ POLICE LINE — DO NOT CROSS ✖ NO SKATING (LOL) ✖&nbsp;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== МАГАЗИН ===== -->
+    <section class="shop" id="shop">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">01 / The drop</p>
+          <h2 class="section-title">Shop <span class="tag">fresh drop</span></h2>
+          <p class="section-lead">
+            Pick a category, choose a size, drop it in the cart. Everything is designed in the courtyard
+            and made to take a beating.
+          </p>
+        </header>
+
+        <!-- Кнопки-фильтры и карточки создаёт app.js из данных products.js -->
+        <div class="filters" id="filters" role="group" aria-label="Filter products by category"></div>
+        <div id="catalog"></div>
+      </div>
+    </section>
+
+    <!-- ===== КАРТА ===== -->
+    <section class="spot" id="spot">
+      <div class="container spot-grid">
+        <div>
+          <header class="section-head">
+            <p class="kicker">02 / The spot</p>
+            <h2 class="section-title">Find <span class="tag">the garage</span></h2>
+            <p class="section-lead">
+              Our shop lives in a garage co-op behind a nine-story panel block. Come try the decks,
+              sit on the bikes and grab free stickers.
+            </p>
+          </header>
+
+          <ol class="steps">
+            <li>Get off at the last stop of bus&nbsp;9.</li>
+            <li>Walk past the grey block with the mural of a cosmonaut on a skateboard.</li>
+            <li>Turn at the rusty swing set and follow the garage row.</li>
+            <li>Box 47 — the door with our tag. Knock twice.</li>
+          </ol>
+
+          <div class="address-card">
+            <h3>Panelka shop</h3>
+            <p>Garage co-op “Vostok”, box 47<br>Moscow</p>
+            <p class="hours"><strong>Daily 14:00 – 23:00</strong><br>Later if the security guard is asleep.</p>
+          </div>
+        </div>
+
+        <!-- Бесплатная карта OpenStreetMap: не нужен ключ API, просто iframe -->
+        <div class="map-frame">
+          <iframe
+            title="Map with the Panelka shop location"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=37.5930%2C55.6150%2C37.6190%2C55.6245&amp;layer=mapnik&amp;marker=55.6197%2C37.6060"
+            loading="lazy"></iframe>
+          <a class="map-link" href="https://www.openstreetmap.org/?mlat=55.6197&amp;mlon=37.6060#map=17/55.6197/37.6060" target="_blank" rel="noopener">
+            <span>Box 47, Garage co-op “Vostok”</span><span>Open full map ↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== КОНТАКТЫ ===== -->
+    <section class="contacts" id="contacts">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">03 / Contacts</p>
+          <h2 class="section-title">Holla at <span class="tag">the block</span></h2>
+          <p class="section-lead">
+            Questions about sizes, custom decks or wholesale sticker drops? Write us.
+            We answer faster than the security guard runs.
+          </p>
+        </header>
+
+        <!-- Внешние ссылки открываются в новой вкладке; rel="noopener" не даёт
+             открытой странице управлять нашей через window.opener. -->
+        <div class="contact-grid">
+          <a class="contact-card" href="https://t.me/gorealleell" target="_blank" rel="noopener">
+            <span class="label">Telegram</span>
+            <span class="value">@gorealleell</span>
+            <span class="note">Fastest way to reach us</span>
+          </a>
+          <a class="contact-card" href="#spot">
+            <span class="label">Walk in</span>
+            <span class="value">Garage box 47</span>
+            <span class="note">Daily 14:00 – 23:00</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== ПОДВАЛ ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-logo">PANELKA</p>
+      <p class="disclaimer">
+        © <span id="year">2026</span> Panelka. Portfolio project — nothing here is actually for sale,
+        no money is charged and the security guard is fictional.
+      </p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#shop">Shop</a>
+        <a href="#spot">Spot</a>
+        <a href="#contacts">Contacts</a>
+      </nav>
+      <p class="footer-credit">
+        Designed &amp; built by
+        <a href="https://t.me/gorealleell" target="_blank" rel="noopener">Vitaly Kulikov</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== КОРЗИНА =====
+       <dialog> — встроенное в браузер модальное окно:
+       само закрывается по Esc, запирает фокус внутри, умеет затемнять фон. -->
+  <dialog class="drawer" id="cartDrawer" aria-labelledby="drawerTitle">
+    <div class="drawer-inner">
+      <header class="drawer-head">
+        <h2 id="drawerTitle">Your cart</h2>
+        <button type="button" class="icon-btn" data-close aria-label="Close cart">✕</button>
+      </header>
+
+      <!-- Шаг 1: список товаров -->
+      <div class="drawer-view" data-view="cart">
+        <ul class="cart-list" id="cartList"></ul>
+        <div class="cart-empty" id="cartEmpty">
+          <p class="cart-empty-tag">empty</p>
+          <p>Your cart is empty. Even the pigeons are disappointed.</p>
+          <button type="button" class="btn btn-primary" data-close>Go shopping</button>
+        </div>
+        <div class="drawer-foot summary">
+          <div class="row"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
+          <div class="row"><span>Shipping</span><span id="shipping">—</span></div>
+          <p class="hint" id="shipHint"></p>
+          <div class="row total"><span>Total</span><span id="total">$0.00</span></div>
+          <button type="button" class="btn btn-primary btn-block" id="toCheckout">Checkout</button>
+        </div>
+      </div>
+
+      <!-- Шаг 2: оформление. Форма никуда не отправляется — магазин условный. -->
+      <form class="drawer-view" data-view="checkout" id="checkoutForm" hidden>
+        <div class="drawer-scroll">
+          <div class="checkout-summary" id="checkoutSummary"></div>
+
+          <fieldset class="options">
+            <legend>Delivery</legend>
+            <label class="option">
+              <input type="radio" name="delivery" value="courier" checked>
+              <span><strong>Courier</strong><small id="courierNote">3–5 days</small></span>
+            </label>
+            <label class="option">
+              <input type="radio" name="delivery" value="pickup">
+              <span><strong>Pickup at the garage</strong><small>Box 47 · free · knock twice</small></span>
+            </label>
+          </fieldset>
+
+          <div class="field">
+            <label for="fullName">Full name</label>
+            <input id="fullName" name="fullName" autocomplete="name" required minlength="2" aria-describedby="fullName-error">
+            <p class="error" id="fullName-error">Tell us who’s rolling.</p>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error">
+            <p class="error" id="email-error">Need a valid email for the receipt.</p>
+          </div>
+
+          <!-- Если выбран самовывоз, app.js отключит этот fieldset целиком:
+               отключённые поля не проверяются и не мешают отправке. -->
+          <fieldset class="address-fields" id="addressFields">
+            <div class="field">
+              <label for="address">Address</label>
+              <input id="address" name="address" autocomplete="street-address" required aria-describedby="address-error">
+              <p class="error" id="address-error">Where should we drop it?</p>
+            </div>
+            <div class="row-2">
+              <div class="field">
+                <label for="city">City</label>
+                <input id="city" name="city" autocomplete="address-level2" required aria-describedby="city-error">
+                <p class="error" id="city-error">Required.</p>
+              </div>
+              <div class="field">
+                <label for="zip">ZIP</label>
+                <input id="zip" name="zip" autocomplete="postal-code" required aria-describedby="zip-error">
+                <p class="error" id="zip-error">Required.</p>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="options">
+            <legend>Payment</legend>
+            <label class="option">
+              <input type="radio" name="payment" value="card" checked>
+              <span><strong>Card</strong><small>Demo mode — no card details needed</small></span>
+            </label>
+            <label class="option">
+              <input type="radio" name="payment" value="cash">
+              <span><strong>Cash on delivery</strong><small>Exact change appreciated</small></span>
+            </label>
+          </fieldset>
+
+          <p class="demo-note">
+            ⚠ Demo store for a portfolio. No real orders, no payments, and nothing you type is sent anywhere.
+          </p>
+        </div>
+        <div class="drawer-foot two-buttons">
+          <button type="button" class="btn btn-ghost" data-back>Back</button>
+          <button type="submit" class="btn btn-primary" id="placeOrder">Place order</button>
+        </div>
+      </form>
+
+      <!-- Шаг 3: «заказ принят» -->
+      <div class="drawer-view done" data-view="done" hidden>
+        <p class="done-stamp" tabindex="-1">Order accepted</p>
+        <p class="done-num" id="orderNumber"></p>
+        <p class="done-text" id="orderText"></p>
+        <button type="button" class="btn btn-primary" data-close>Back to shop</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Всплывающее уведомление «добавлено в корзину» -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

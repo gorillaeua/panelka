@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Исходник картинки-превью для соцсетей (og-image.png).
+       Размер 1200×630 — стандарт Open Graph: соотношение 1.91:1.
+       Соцсети не показывают SVG в превью, поэтому из этого файла делается PNG:
+         qlmanage -t -s 1200 -o . og-image.svg   (рисует квадрат 1200×1200)
+         sips -c 630 1200 og-image.svg.png -o og-image.png   (обрезает до 1200×630) -->
+  <defs>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Anton&amp;family=IBM+Plex+Mono:wght@500&amp;family=Permanent+Marker&amp;display=block");
+      .display { font-family: "Anton", Impact, "Arial Narrow", sans-serif; }
+      .tag     { font-family: "Permanent Marker", "Marker Felt", cursive; }
+      .mono    { font-family: "IBM Plex Mono", Menlo, monospace; font-weight: 500; }
+    </style>
+
+    <!-- Шум бетона — тот же фильтр, что в переменной noise в style.css -->
+    <filter id="noise" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+
+    <!-- Швы между бетонными плитами: повторяющийся узор 240×150 -->
+    <pattern id="slabs" width="240" height="150" patternUnits="userSpaceOnUse">
+      <path d="M0 0H240M0 0V150" stroke="#000" stroke-opacity=".3" stroke-width="3"/>
+    </pattern>
+
+    <!-- Мягкое свечение для горящего окна -->
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#ffd400" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#ffd400" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 1. Фон: тёмный бетон + швы + шум -->
+  <rect width="1200" height="630" fill="#1f2022"/>
+  <rect width="1200" height="630" fill="url(#slabs)"/>
+  <rect width="1200" height="630" filter="url(#noise)" opacity=".09"/>
+
+  <!-- 2. Панелька справа (как в favicon.svg) с одним горящим окном -->
+  <g transform="translate(880 60)">
+    <rect width="250" height="580" fill="#4a4b4e" stroke="#000" stroke-width="4"/>
+    <g fill="#161719">
+      <rect x="25"  y="30"  width="40" height="40"/><rect x="85"  y="30"  width="40" height="40"/><rect x="145" y="30"  width="40" height="40"/>
+      <rect x="25"  y="100" width="40" height="40"/><rect x="145" y="100" width="40" height="40"/>
+      <rect x="25"  y="170" width="40" height="40"/><rect x="85"  y="170" width="40" height="40"/><rect x="145" y="170" width="40" height="40"/>
+      <rect x="25"  y="240" width="40" height="40"/><rect x="85"  y="240" width="40" height="40"/><rect x="145" y="240" width="40" height="40"/>
+      <rect x="25"  y="310" width="40" height="40"/><rect x="85"  y="310" width="40" height="40"/><rect x="145" y="310" width="40" height="40"/>
+      <rect x="25"  y="380" width="40" height="40"/><rect x="85"  y="380" width="40" height="40"/><rect x="145" y="380" width="40" height="40"/>
+      <rect x="25"  y="450" width="40" height="40"/><rect x="85"  y="450" width="40" height="40"/><rect x="145" y="450" width="40" height="40"/>
+    </g>
+    <g fill="#161719">
+      <rect x="205" y="30"  width="25" height="40"/><rect x="205" y="100" width="25" height="40"/>
+      <rect x="205" y="170" width="25" height="40"/><rect x="205" y="240" width="25" height="40"/>
+      <rect x="205" y="310" width="25" height="40"/><rect x="205" y="380" width="25" height="40"/><rect x="205" y="450" width="25" height="40"/>
+    </g>
+    <circle cx="105" cy="120" r="90" fill="url(#glow)"/>
+    <rect x="85" y="100" width="40" height="40" fill="#ffd400"/>
+  </g>
+
+  <!-- 3. Текст -->
+  <text class="mono" x="80" y="140" font-size="22" letter-spacing="4" fill="#8a8b8d">SKATE &amp; BMX SUPPLY FROM THE BLOCKS</text>
+
+  <!-- Жёсткая чёрная тень без размытия (как shadow-hard в style.css): та же надпись, сдвинутая на 8px -->
+  <text class="display" x="88" y="358" font-size="210" letter-spacing="4" fill="#000">PANELKA</text>
+  <text class="display" x="80" y="350" font-size="210" letter-spacing="4" fill="#ece8de">PANELKA</text>
+
+  <text class="tag" x="90" y="438" font-size="54" fill="#ffd400" transform="rotate(-3 90 438)">Concrete is our playground</text>
+
+  <!-- 4. Две полицейские ленты крест-накрест, как на главной странице -->
+  <g transform="rotate(2 600 548)">
+    <rect x="-40" y="524" width="1280" height="46" fill="#111" stroke="#000" stroke-width="3"/>
+    <text class="display" x="0" y="557" font-size="24" letter-spacing="2" fill="#ffd400">DO NOT CROSS ✖ SECURITY IS COMING ✖ ROLL FASTER ✖ DO NOT CROSS ✖ SECURITY IS COMING ✖ ROLL FASTER ✖ DO NOT CROSS</text>
+  </g>
+  <g transform="rotate(-2 600 548)">
+    <rect x="-40" y="524" width="1280" height="46" fill="#ffd400" stroke="#000" stroke-width="3"/>
+    <text class="display" x="-10" y="557" font-size="24" letter-spacing="2" fill="#000">SKATEBOARDING IS NOT A CRIME ✖ POLICE LINE — DO NOT CROSS ✖ NO SKATING (LOL) ✖ SKATEBOARDING IS NOT A CRIME ✖ POLICE LINE</text>
+  </g>
+
+  <!-- 5. Адрес сайта -->
+  <text class="mono" x="80" y="612" font-size="18" letter-spacing="2" fill="#8a8b8d">gorealleell.github.io/panelka</text>
+</svg>
